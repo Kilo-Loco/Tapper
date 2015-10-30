@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     // Properties
     var maxTaps : Int = 0
     var currentTaps : Int = 0
@@ -27,6 +27,11 @@ class ViewController: UIViewController {
         self.updateTapsLabel()
         
         if isGameOver() {
+            let alertController: UIAlertController = UIAlertController(title: "You did it!", message: "Good Job", preferredStyle: .Alert)
+            let okayAction: UIAlertAction = UIAlertAction(title: "I'M AWESOME!", style: .Cancel, handler: nil)
+            
+            alertController.addAction(okayAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
             self.restartGame()
         }
     }
@@ -57,19 +62,18 @@ class ViewController: UIViewController {
                 }
             }
         } else {
+            // Added Alert Controller for invalid number
             let alertController: UIAlertController = UIAlertController(title: "Invalid Number", message: "Please enter an interger.", preferredStyle: .Alert)
-            let okayAction: UIAlertAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (action) -> Void in
-                //Don't do anything
-            })
+            let okayAction: UIAlertAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
             
             alertController.addAction(okayAction)
-            
             self.presentViewController(alertController, animated: true, completion: nil)
             
-            
+            self.howManyTapsText.text = ""
         }
     }
     
+    // Check if user tapped goal amount of taps
     func isGameOver() -> Bool {
         if self.currentTaps >= self.maxTaps {
             return true
@@ -78,6 +82,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Resets game
     func restartGame() {
         self.maxTaps = 0
         self.howManyTapsText.text = ""
@@ -96,6 +101,17 @@ class ViewController: UIViewController {
     
     func updateTapsLabel() {
         self.tapsLabel.text = "\(self.currentTaps) Taps"
+    }
+    
+    // Return/Done hides keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Tapping off keyboard hides keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }
