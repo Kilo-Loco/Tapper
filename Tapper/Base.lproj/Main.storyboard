@@ -8,7 +8,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tapper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -22,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="tapperCloud" translatesAutoresizingMaskIntoConstraints="NO" id="hPF-tG-zS9" userLabel="Logo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tapperCloud" translatesAutoresizingMaskIntoConstraints="NO" id="hPF-tG-zS9" userLabel="Logo">
                                 <rect key="frame" x="159" y="28" width="282" height="161"/>
                                 <animations/>
                                 <constraints>
@@ -42,11 +41,11 @@
                                     <action selector="onPlayButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xQ0-mb-a7P"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps to win?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WM5-fy-Nld" userLabel="TapText">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="How many taps to win?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WM5-fy-Nld" userLabel="TapText">
                                 <rect key="frame" x="175" y="334" width="250" height="30"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Wk9-5C-vvB"/>
+                                    <constraint firstAttribute="height" constant="30" id="Wk9-5C-vvB"/>
                                     <constraint firstAttribute="width" constant="250" id="yho-Iu-zS2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
@@ -90,7 +89,7 @@
                             <constraint firstItem="Y7P-ni-rqy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1ek-kv-pwA"/>
                             <constraint firstAttribute="trailing" secondItem="Y7P-ni-rqy" secondAttribute="trailing" id="6UL-ER-8dc"/>
                             <constraint firstItem="C18-28-CYa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9bZ-Po-xIp"/>
-                            <constraint firstItem="hPF-tG-zS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="G28-3M-eKy"/>
+                            <constraint firstItem="hPF-tG-zS9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="G28-3M-eKy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7wu-Ue-f6U" secondAttribute="bottom" constant="63" id="Gau-Vw-o4N"/>
                             <constraint firstItem="7wu-Ue-f6U" firstAttribute="top" secondItem="WM5-fy-Nld" secondAttribute="bottom" constant="29" id="JnA-7A-eQq"/>
                             <constraint firstItem="lKK-5r-d9O" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="LbP-mP-iOg"/>
@@ -114,6 +113,7 @@
                         <outlet property="tapsLabel" destination="nr2-1R-2fD" id="F5l-OT-Eyj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="336"/>
         </scene>

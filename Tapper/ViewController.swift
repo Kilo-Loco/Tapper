@@ -23,44 +23,55 @@ class ViewController: UIViewController {
     @IBOutlet weak var balloon : UIImageView!
     
     @IBAction func tapperTapped(sender: UIButton!) {
-        currentTaps++
-        updateTapsLabel()
+        self.currentTaps++
+        self.updateTapsLabel()
         
         if isGameOver() {
-            restartGame()
+            self.restartGame()
         }
     }
     
     // Start game function
     @IBAction func onPlayButtonPressed(sender: UIButton!) {
-        if let howManyTapsNumber: Int = Int(howManyTapsText.text!)!{
+        if let howManyTapsNumber: Int = Int(self.howManyTapsText.text!) {
         
-            if howManyTapsNumber > 0 && howManyTapsText.text != "" {
+            if howManyTapsNumber > 0 && self.howManyTapsText.text != "" {
         
                 // Hide splash screen controls
-                logoImg.hidden = true
-                howManyTapsText.hidden = true
-                playButton.hidden = true
+                self.logoImg.hidden = true
+                self.howManyTapsText.hidden = true
+                self.playButton.hidden = true
             
                 // Show game controls
-                tapButton.hidden = false
-                tapsLabel.hidden = false
-                balloon.hidden = false
+                self.tapButton.hidden = false
+                self.tapsLabel.hidden = false
+                self.balloon.hidden = false
             
-                maxTaps = Int(howManyTapsText.text!)!
-                currentTaps = 0
+                self.maxTaps = Int(howManyTapsText.text!)!
+                self.currentTaps = 0
             
-                updateTapsLabel()
+                self.updateTapsLabel()
             
-                if isGameOver() {
-                    restartGame()
+                if self.isGameOver() {
+                    self.restartGame()
                 }
             }
+        } else {
+            let alertController: UIAlertController = UIAlertController(title: "Invalid Number", message: "Please enter an interger.", preferredStyle: .Alert)
+            let okayAction: UIAlertAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (action) -> Void in
+                //Don't do anything
+            })
+            
+            alertController.addAction(okayAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
+            
         }
     }
     
     func isGameOver() -> Bool {
-        if currentTaps >= maxTaps {
+        if self.currentTaps >= self.maxTaps {
             return true
         } else {
             return false
@@ -68,23 +79,23 @@ class ViewController: UIViewController {
     }
     
     func restartGame() {
-        maxTaps = 0
-        howManyTapsText.text = ""
+        self.maxTaps = 0
+        self.howManyTapsText.text = ""
         
         // Hide splash screen controls
-        logoImg.hidden = false
-        howManyTapsText.hidden = false
-        playButton.hidden = false
+        self.logoImg.hidden = false
+        self.howManyTapsText.hidden = false
+        self.playButton.hidden = false
         
         // Show game controls
-        tapButton.hidden = true
-        tapsLabel.hidden = true
-        balloon.hidden = true
+        self.tapButton.hidden = true
+        self.tapsLabel.hidden = true
+        self.balloon.hidden = true
 
     }
     
     func updateTapsLabel() {
-        tapsLabel.text = "\(currentTaps) Taps"
+        self.tapsLabel.text = "\(self.currentTaps) Taps"
     }
 
 }
